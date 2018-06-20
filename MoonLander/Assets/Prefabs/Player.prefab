@@ -315,6 +315,8 @@ MonoBehaviour:
   RotationForce: 50
   PropulsionForce: 100
   InitialRotation: 270
+  Fuel: 1000
+  CombustionFuel: 10
 --- !u!114 &114731162123579636
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -32,7 +32,7 @@ public class GameManagerController : MonoBehaviour {
         Terrains[4] = LU_RU_LandZone;*/
         cameraH = Camera.main.orthographicSize * 2f;
         cameraW = cameraH * Camera.main.aspect;
-        //Instantiate(Player, new Vector2(0, 5), Quaternion.identity);
+       
         Instantiate(Player, new Vector2(-cameraW/2, cameraH/2), Quaternion.identity);
         
         TerrainGeneration();
@@ -59,7 +59,7 @@ public class GameManagerController : MonoBehaviour {
 
     public void TerrainAsignation()
     {
-        int TerrainsRandom;
+        //int TerrainsRandom;
 
         if (AuxTerrain == null)
         {
