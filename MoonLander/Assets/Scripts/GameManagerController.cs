@@ -17,11 +17,10 @@ public class GameManagerController : MonoBehaviour {
     private float cameraH;
     private float cameraW;
     private GameObject AuxTerrain;
-
-
+    
     void Start()
     {
-
+        
         /*for (int i = 0; i < LD_RD_Terrain.Length; i++)
         {
             Terrains[0][i] = LD_RD_Terrain[i];
@@ -31,9 +30,10 @@ public class GameManagerController : MonoBehaviour {
         Terrains[2] = LD_RU_Terrain;
         Terrains[3] = LU_RU_Terrain;
         Terrains[4] = LU_RU_LandZone;*/
-        Instantiate(Player, new Vector2(0, 0), Quaternion.identity);
         cameraH = Camera.main.orthographicSize * 2f;
         cameraW = cameraH * Camera.main.aspect;
+        //Instantiate(Player, new Vector2(0, 5), Quaternion.identity);
+        Instantiate(Player, new Vector2(-cameraW/2, cameraH/2), Quaternion.identity);
         
         TerrainGeneration();
     }

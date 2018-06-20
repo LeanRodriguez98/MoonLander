@@ -7,20 +7,24 @@ public class PlayerController : MonoBehaviour {
     [HideInInspector] public Vector3 Rotation;
     [HideInInspector] public bool ParticlesController;
     private Rigidbody2D Rb_Player;
+    public float InitialForce;
     public float RotationForce;
     public float PropulsionForce;
-        public LayerMask rayCastLayer;
+    public float InitialRotation;
 
     void Start ()
     {
         Instanciate = this;
         ParticlesController = false;
-        Rotation = Vector3.zero;
+        Rotation = transform.eulerAngles;
+        Rotation.z = InitialRotation;
         Rb_Player = GetComponent<Rigidbody2D>();
-    }
-	
+        Rb_Player.AddForce(transform.right * InitialForce);
 
-	void Update ()
+    }
+
+
+    void Update ()
     {          
         PlayerMovement();
     }

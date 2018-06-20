@@ -21,7 +21,7 @@ public class CameraZoomCollider : MonoBehaviour {
         if (collision.gameObject.tag == "Terrain" || collision.gameObject.tag == "LandTerrain")
         {           
             CameraTrigger = true;
-            Debug.Log("true");
+           
         }        
     }
 
@@ -30,7 +30,7 @@ public class CameraZoomCollider : MonoBehaviour {
         if (collision.gameObject.tag == "Terrain" || collision.gameObject.tag == "LandTerrain")
         {
             CameraTrigger = false;
-            Debug.Log("flase");
+            
         }
     }
 

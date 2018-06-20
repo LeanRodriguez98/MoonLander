@@ -311,11 +311,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rotation: {x: 0, y: 0, z: 0}
   ParticlesController: 0
+  InitialForce: 50
   RotationForce: 50
-  PropulsionForce: 1000
-  rayCastLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  PropulsionForce: 100
+  InitialRotation: 270
 --- !u!114 &114731162123579636
 MonoBehaviour:
   m_ObjectHideFlags: 1

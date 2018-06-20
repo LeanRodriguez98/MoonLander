@@ -266,4 +266,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a054303f28afe94a8fda94a8d665d5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ZoomCameraSize: 1
+  ZoomCameraSize: 3
