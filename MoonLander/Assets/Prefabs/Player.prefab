@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4694707618106092}
   - component: {fileID: 212481609965380632}
-  - component: {fileID: 114437896598531364}
   - component: {fileID: 50378984769388688}
   - component: {fileID: 61149745354698426}
   - component: {fileID: 114625962505638372}
@@ -41,10 +40,26 @@ GameObject:
   - component: {fileID: 4194926461291372}
   - component: {fileID: 198575637852034974}
   - component: {fileID: 199774612771167412}
-  - component: {fileID: 114317343201290670}
   - component: {fileID: 114148062263581684}
   m_Layer: 0
   m_Name: Particle System
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1491351825635696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4201090086500784}
+  - component: {fileID: 58484065765350718}
+  - component: {fileID: 114465004377685770}
+  m_Layer: 0
+  m_Name: CameraZoomColider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +75,6 @@ GameObject:
   - component: {fileID: 4737175804074812}
   - component: {fileID: 198934246812815716}
   - component: {fileID: 199310302848181034}
-  - component: {fileID: 114748411396845170}
   - component: {fileID: 114731162123579636}
   m_Layer: 0
   m_Name: Particle System (3)
@@ -79,7 +93,6 @@ GameObject:
   - component: {fileID: 4425211055401884}
   - component: {fileID: 198279568676825892}
   - component: {fileID: 199303035325073612}
-  - component: {fileID: 114744929422173866}
   - component: {fileID: 114075074910924982}
   m_Layer: 0
   m_Name: Particle System (2)
@@ -98,7 +111,6 @@ GameObject:
   - component: {fileID: 4342492154367292}
   - component: {fileID: 198012612237410258}
   - component: {fileID: 199067859750997416}
-  - component: {fileID: 114507018322132486}
   - component: {fileID: 114754252499768120}
   m_Layer: 0
   m_Name: Particle System (1)
@@ -120,6 +132,19 @@ Transform:
   m_Father: {fileID: 4694707618106092}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90}
+--- !u!4 &4201090086500784
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1491351825635696}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 15, y: 15, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4694707618106092}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4342492154367292
 Transform:
   m_ObjectHideFlags: 1
@@ -153,13 +178,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1127085681335730}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.24, y: 5.1397014, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.058545064, y: -1.0001664, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 4194926461291372}
   - {fileID: 4342492154367292}
   - {fileID: 4425211055401884}
   - {fileID: 4737175804074812}
+  - {fileID: 4201090086500784}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -184,7 +210,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1127085681335730}
   m_BodyType: 0
-  m_Simulated: 0
+  m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
@@ -195,7 +221,22 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 6
+  m_Constraints: 0
+--- !u!58 &58484065765350718
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1491351825635696}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!61 &61149745354698426
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -233,7 +274,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _PlayerController: {fileID: 114625962505638372}
-  particles: {fileID: 0}
 --- !u!114 &114148062263581684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -246,62 +286,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _PlayerController: {fileID: 114625962505638372}
-  particles: {fileID: 0}
---- !u!114 &114317343201290670
+--- !u!114 &114465004377685770
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1465225931212952}
+  m_GameObject: {fileID: 1491351825635696}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68fe11b7b3cecc54d8b6ca116f0e36fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 9db0122b2b075f445947b309b703ca08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _battleShipController: {fileID: 114437896598531364}
-  particles: {fileID: 0}
---- !u!114 &114437896598531364
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1127085681335730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69423feffc59d1b4aaab06d917fe9517, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Bullet: {fileID: 1979839350035580, guid: 08f94e5ed7e75224589f0bf25d56b703, type: 2}
-  Bomb: {fileID: 1721644912450112, guid: a0e19ce088b83b141b177eebe793174b, type: 2}
-  BombParticles: {fileID: 1666585897572436, guid: ed6ce5c663a3652498771f14aa09a6f8,
-    type: 2}
-  rbBattleShip: {fileID: 50378984769388688}
-  spBattleShip: {fileID: 21300000, guid: 8506b5b0fc6573446b9b79a706fbaa25, type: 3}
-  trBattleShip: {fileID: 4694707618106092}
-  Shoot: {fileID: 8300000, guid: 97edc1acc845f4e48b61b39b834d7507, type: 3}
-  Explotion: {fileID: 8300000, guid: 4190b5998b93d4348a8c6896493f0086, type: 3}
-  speed: 10
-  machineGunEnergyCost: 5
-  BulletTimeEnergyCost: 5
-  KnockbackForce: 1
-  cameraShake: 0
-  BulletTimeSpeed: 0.2
-  ParticlesController: 0
-  TimeOfBulletTime: 3
-  GameOverScene: GameOver
---- !u!114 &114507018322132486
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1957783930091806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68fe11b7b3cecc54d8b6ca116f0e36fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _battleShipController: {fileID: 114437896598531364}
-  particles: {fileID: 0}
+  CameraTrigger: 0
 --- !u!114 &114625962505638372
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -313,7 +309,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 925fce575ce647948b83461bb026816c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Rotation: {x: 0, y: 0, z: 0}
   ParticlesController: 0
+  RotationForce: 50
+  PropulsionForce: 1000
+  rayCastLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &114731162123579636
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -326,33 +328,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _PlayerController: {fileID: 114625962505638372}
-  particles: {fileID: 0}
---- !u!114 &114744929422173866
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1770346807998302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68fe11b7b3cecc54d8b6ca116f0e36fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _battleShipController: {fileID: 114437896598531364}
-  particles: {fileID: 0}
---- !u!114 &114748411396845170
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1634961014269246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68fe11b7b3cecc54d8b6ca116f0e36fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _battleShipController: {fileID: 114437896598531364}
-  particles: {fileID: 0}
 --- !u!114 &114754252499768120
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -365,7 +340,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _PlayerController: {fileID: 114625962505638372}
-  particles: {fileID: 0}
 --- !u!198 &198012612237410258
 ParticleSystem:
   m_ObjectHideFlags: 1

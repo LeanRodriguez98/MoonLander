@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour {
     private Rigidbody2D Rb_Player;
     public float RotationForce;
     public float PropulsionForce;
- 
+        public LayerMask rayCastLayer;
+
     void Start ()
     {
         Instanciate = this;
@@ -20,8 +21,7 @@ public class PlayerController : MonoBehaviour {
 	
 
 	void Update ()
-    {
-
+    {          
         PlayerMovement();
     }
 
@@ -39,12 +39,12 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            Rotation.z += RotationForce;
+            Rotation.z += RotationForce * Time.deltaTime;
         }
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            Rotation.z -= RotationForce;
+            Rotation.z -= RotationForce * Time.deltaTime;
         }
         transform.eulerAngles = Rotation;
     }

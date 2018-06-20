@@ -141,6 +141,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1127085681335730, guid: bb937d6bffe23d441b3aca68266192e3, type: 2}
+  LD_RD_Terrain:
+  - {fileID: 1642300676686086, guid: b89c38fef7663fa4a8f5124c38cdf804, type: 2}
+  - {fileID: 1171539340824264, guid: 83dfc8ac9f8fc484c9bcdcf70d4ff606, type: 2}
+  LU_RD_Terrain:
+  - {fileID: 1786680391457630, guid: 01dfcdfd925cb8e4d85d015544d2d85a, type: 2}
+  - {fileID: 1992099771199274, guid: 06277fac8e6052f4881d7a5255d29a56, type: 2}
+  LD_RU_Terrain:
+  - {fileID: 1922416071914290, guid: 3067c01d800472143bd52e39f0f21552, type: 2}
+  - {fileID: 1089995615836640, guid: 58ad0f9d04adac44f80c56199bfe84d8, type: 2}
+  LU_RU_Terrain:
+  - {fileID: 1538905302877526, guid: 099a3edb53e5a36429e10c1b1eef47c6, type: 2}
+  - {fileID: 1394375140189898, guid: c4dc19fbd26121f419c5876fae4d672a, type: 2}
+  LU_RU_LandZone:
+  - {fileID: 1413978752553680, guid: 50f3e90a71f2eab458c8c1d9f1202f5f, type: 2}
+  - {fileID: 1621383276365356, guid: 7b39b346e3afb78408b4c3f03658d672, type: 2}
+  - {fileID: 1769356775549750, guid: 20e5a5c3ee637df4799b0d84ccd19eed, type: 2}
+  StartHeightTerrain: -2
+  MaxHeight: 3
+  MinHeight: -4
 --- !u!4 &1765393431
 Transform:
   m_ObjectHideFlags: 0
@@ -165,6 +184,7 @@ GameObject:
   - component: {fileID: 2123552099}
   - component: {fileID: 2123552098}
   - component: {fileID: 2123552097}
+  - component: {fileID: 2123552101}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -235,3 +255,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2123552101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2123552096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a054303f28afe94a8fda94a8d665d5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ZoomCameraSize: 1
