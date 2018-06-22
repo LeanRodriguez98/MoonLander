@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManagerController : MonoBehaviour {
 
     public GameObject Player;
-    //private GameObject[][] Terrains;
+    private GameObject[][] Terrains = new GameObject[5][];
 
     public GameObject[] LD_RD_Terrain;
     public GameObject[] LU_RD_Terrain;
@@ -26,12 +26,14 @@ public class GameManagerController : MonoBehaviour {
         /*for (int i = 0; i < LD_RD_Terrain.Length; i++)
         {
             Terrains[0][i] = LD_RD_Terrain[i];
-        }
-        
+        }*/
+
+
+        Terrains[0] = LD_RD_Terrain;
         Terrains[1] = LU_RD_Terrain;
         Terrains[2] = LD_RU_Terrain;
         Terrains[3] = LU_RU_Terrain;
-        Terrains[4] = LU_RU_LandZone;*/
+        Terrains[4] = LU_RU_LandZone;
         cameraH = Camera.main.orthographicSize * 2f;
         cameraW = cameraH * Camera.main.aspect;
        
