@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 public class ButtonsManager : MonoBehaviour
 {
     public GameObject PauseButton;
@@ -51,4 +53,8 @@ public class ButtonsManager : MonoBehaviour
         Debug.Log("TEST");
     }
 
+    public void Change_Scense(string LevelName)
+    {
+        SceneManager.LoadScene(LevelName);
+    }
 }
