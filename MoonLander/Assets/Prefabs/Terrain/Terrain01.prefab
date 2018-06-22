@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4474792593946278}
   - component: {fileID: 212039479567733914}
+  - component: {fileID: 68986268847611056}
   m_Layer: 0
   m_Name: Terrain01
   m_TagString: Terrain
@@ -34,12 +35,50 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1642300676686086}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 45.562866, y: 61.600304, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &68986268847611056
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1642300676686086}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.49094772, y: -0.47981644}
+  - {x: -0.4193573, y: -0.24830246}
+  - {x: -0.30713272, y: -0.1100502}
+  - {x: -0.2749138, y: 0.06417847}
+  - {x: -0.22943115, y: 0.13667297}
+  - {x: -0.178936, y: 0.13524246}
+  - {x: -0.118572235, y: 0.17801285}
+  - {x: -0.10166168, y: 0.24705887}
+  - {x: -0.06172943, y: 0.28756714}
+  - {x: 0.0011558533, y: 0.29370117}
+  - {x: 0.044200897, y: 0.27807236}
+  - {x: 0.11528015, y: 0.27487946}
+  - {x: 0.1375618, y: 0.18144226}
+  - {x: 0.20869064, y: 0.11651611}
+  - {x: 0.2106018, y: 0.073143005}
+  - {x: 0.2475853, y: -0.00092315674}
+  - {x: 0.29284286, y: -0.08116531}
+  - {x: 0.32386398, y: -0.22559738}
+  - {x: 0.3909874, y: -0.27432632}
+  - {x: 0.39552307, y: -0.3626747}
+  - {x: 0.40605164, y: -0.4057083}
+  - {x: 0.44563293, y: -0.4596138}
+  - {x: 0.48694992, y: -0.49537277}
 --- !u!212 &212039479567733914
 SpriteRenderer:
   m_ObjectHideFlags: 1

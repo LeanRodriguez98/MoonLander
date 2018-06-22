@@ -6,6 +6,7 @@ public class GameManagerController : MonoBehaviour {
 
     public GameObject Player;
     //private GameObject[][] Terrains;
+
     public GameObject[] LD_RD_Terrain;
     public GameObject[] LU_RD_Terrain;
     public GameObject[] LD_RU_Terrain;
@@ -17,6 +18,7 @@ public class GameManagerController : MonoBehaviour {
     private float cameraH;
     private float cameraW;
     private GameObject AuxTerrain;
+    private int[] AuxArrayTerrains;
     
     void Start()
     {
@@ -52,18 +54,33 @@ public class GameManagerController : MonoBehaviour {
         for (int i = (int)-cameraW/2; i < cameraW/2; i++)
         {
             //TerrainAsignation();
-            Instantiate(AuxTerrain, new Vector2(i, StartHeightTerrain), Quaternion.identity);
+            if (i%2 == 0)
+            {
+                Instantiate(AuxTerrain, new Vector2(i, StartHeightTerrain), Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(LD_RD_Terrain[0], new Vector2(i, StartHeightTerrain + 1), Quaternion.identity);
+
+            }
         }
 
     }
 
     public void TerrainAsignation()
     {
-        //int TerrainsRandom;
+        int TerrainsRandom = 0;
 
         if (AuxTerrain == null)
         {
-            //AuxTerrain = Terrains[TerrainsRandom = Random.Range(0, Terrains.Length + 1)][Random.Range(0,Terrains[TerrainsRandom].Length)];
+            //TerrainsRandom = Random.Range()
+        }
+        switch (TerrainsRandom)
+        {
+            case 0:
+                break;
+            case 1:
+                break;
         }
     }
 }
