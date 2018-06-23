@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using System;
 
 public class GameManagerController : MonoBehaviour {
 
@@ -17,7 +18,7 @@ public class GameManagerController : MonoBehaviour {
     public GameObject[] LD_RD_LandZone;//<----------
 
 
-    private GameObject[] AuxTerrains;
+    private GameObject[] InstanciateTerrains;
     public int StartHeightTerrain;
     public int MaxHeight;
     public int MinHeight;
@@ -31,7 +32,6 @@ public class GameManagerController : MonoBehaviour {
         Terrains[0] = LD_RD_LandZone;
         Terrains[1] = LD_RD_Terrain;
         Terrains[2] = LD_RU_Terrain;
-
         Terrains[3] = LU_RU_LandZone;
         Terrains[4] = LU_RU_Terrain;
         Terrains[5] = LU_RD_Terrain;
@@ -42,7 +42,7 @@ public class GameManagerController : MonoBehaviour {
        
         Instantiate(Player, new Vector2(-cameraW/2, cameraH/2), Quaternion.identity);
 
-        AuxTerrains = new GameObject[(int)cameraW];
+        InstanciateTerrains = new GameObject[(int)cameraW];
 
         do
         {
@@ -54,7 +54,6 @@ public class GameManagerController : MonoBehaviour {
     
     void Update ()
     {
-        
 
     }
 
@@ -65,13 +64,13 @@ public class GameManagerController : MonoBehaviour {
         for (int i = (int)-cameraW/2; i < cameraW/2; i++)
         {
 
-            Instantiate(AuxTerrains[counter], new Vector2(i, StartHeightTerrain), Quaternion.identity);
+           Instantiate(InstanciateTerrains[counter], new Vector2(i, StartHeightTerrain), Quaternion.identity);
 
            for (int j = 0; j < Terrains.Length; j++)
            {
                for (int k = 0; k < Terrains[j].Length; k++)
                 {
-                    if (Terrains[j][k] == AuxTerrains[counter])
+                    if (Terrains[j][k] == InstanciateTerrains[counter])
                     {
                         if (Terrains[j] == LD_RD_LandZone || Terrains[j] == LD_RD_Terrain || Terrains[j] == LU_RD_Terrain)
                         {
@@ -82,18 +81,13 @@ public class GameManagerController : MonoBehaviour {
                             StartHeightTerrain++;
                         }
                     }
-                }
+               }
            }
 
             counter++;
 
         }
 
-    }
-
-    public void HeightUpdate(GameObject CurrentTerrain, int counter)
-    {
-        
     }
 
     public void TerrainAsignation()
@@ -107,80 +101,73 @@ public class GameManagerController : MonoBehaviour {
             IndexArray.Add(i);
         }
 
-        for (int i = 0; i < AuxTerrains.Length; i++)
+        for (int i = 0; i < InstanciateTerrains.Length; i++)
         {
             
             TerrainsRandom = IndexArray[Random.Range(0, IndexArray.Count)];
 
-            AuxTerrains[i] = Terrains[TerrainsRandom][Random.Range(0, Terrains[TerrainsRandom].Length)];
+            InstanciateTerrains[i] = Terrains[TerrainsRandom][Random.Range(0, Terrains[TerrainsRandom].Length)];
 
             IndexArray.Clear();
 
             switch (TerrainsRandom)
             {
-                case 0:
-                   // IndexArray.Add(3);
-                    IndexArray.Add(4);
-                    IndexArray.Add(5);
+                case 0:                   
+                    IndexArray.Add(System.Array.IndexOf(Terrains, LU_RU_Terrain));
+                    IndexArray.Add(System.Array.IndexOf(Terrains, LU_RD_Terrain));
                     auxHeightTerrain--;
                     break;
                 case 1:
-                    IndexArray.Add(3);
-                    IndexArray.Add(4);
-                    IndexArray.Add(5);
+                    IndexArray.Add(System.Array.IndexOf(Terrains, LU_RU_LandZone));
+                    IndexArray.Add(System.Array.IndexOf(Terrains, LU_RU_Terrain));
+                    IndexArray.Add(System.Array.IndexOf(Terrains, LU_RD_Terrain));
                     auxHeightTerrain--;
                     break;
                 case 2:
-                    IndexArray.Add(0);
-                    IndexArray.Add(1);
-                    if (auxHeightTerrain < MaxHeight)                    
-                        IndexArray.Add(2);                    
+                    IndexArray.Add(System.Array.IndexOf(Terrains, LD_RD_LandZone));
+                    IndexArray.Add(System.Array.IndexOf(Terrains, LD_RD_Terrain));
+                    if (auxHeightTerrain < MaxHeight)
+                        IndexArray.Add(System.Array.IndexOf(Terrains, LD_RU_Terrain));
                     auxHeightTerrain++;
                     break;
                 case 3:
-                   // IndexArray.Add(0);
-                    IndexArray.Add(1);
-                    IndexArray.Add(2);
+                    IndexArray.Add(System.Array.IndexOf(Terrains, LD_RD_Terrain));
+                    IndexArray.Add(System.Array.IndexOf(Terrains, LD_RU_Terrain));
                     auxHeightTerrain++;
                     break;
                 case 4:
-                    IndexArray.Add(0);
-                    IndexArray.Add(1);
-                    IndexArray.Add(2);
+                    IndexArray.Add(System.Array.IndexOf(Terrains, LD_RD_LandZone));
+                    IndexArray.Add(System.Array.IndexOf(Terrains, LD_RD_Terrain));
+                    IndexArray.Add(System.Array.IndexOf(Terrains, LD_RU_Terrain));
                     auxHeightTerrain++;
                     break;
                 case 5:
-                    IndexArray.Add(3);
-                    IndexArray.Add(4);
+                    IndexArray.Add(System.Array.IndexOf(Terrains, LU_RU_LandZone));
+                    IndexArray.Add(System.Array.IndexOf(Terrains, LU_RU_Terrain));
                     if (auxHeightTerrain > MinHeight)
-                        IndexArray.Add(5);
+                        IndexArray.Add(System.Array.IndexOf(Terrains, LU_RD_Terrain));
                     auxHeightTerrain--;
                     break;
             }
             IndexArray.Sort();
         }
 
-        for (int i = 0; i < AuxTerrains.Length; i++)
+        for (int i = 0; i < InstanciateTerrains.Length; i++)
         {
             for (int j = 0; i < LD_RD_LandZone.Length; i++)
             {
-                if (AuxTerrains[i]== LD_RD_LandZone[j])
+                if (InstanciateTerrains[i]== LD_RD_LandZone[j])
                 {
                     TerrainCheck = true;
-
                 }
             }
             for (int j = 0; i < LU_RU_LandZone.Length; i++)
             {
-                if (AuxTerrains[i] == LU_RU_LandZone[j])
+                if (InstanciateTerrains[i] == LU_RU_LandZone[j])
                 {
                     TerrainCheck = true;
-
                 }
             }
         }
-
-        
-
     }
 }

@@ -20,9 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4717295231665366}
   - component: {fileID: 212578731509916938}
-  m_Layer: 0
+  - component: {fileID: 60846822276353502}
+  m_Layer: 8
   m_Name: LandZone06
-  m_TagString: Untagged
+  m_TagString: LandTerrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,12 +35,46 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1115808851031894}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.3124347, y: -4.0240555, z: 0}
+  m_LocalPosition: {x: -5.2047215, y: -6.6429367, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &60846822276353502
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1115808851031894}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.5, y: -0.5}
+      - {x: 0.46012688, y: -0.40221977}
+      - {x: 0.31472635, y: -0.15701962}
+      - {x: -0.30526543, y: -0.1570816}
+      - {x: -0.43731642, y: -0.3800001}
+      - {x: -0.5, y: -0.5}
+      - {x: -0.42, y: -0.5}
+      - {x: -0.26, y: -0.25}
+      - {x: 0.37, y: -0.39999998}
+      - {x: 0.45, y: -0.5}
 --- !u!212 &212578731509916938
 SpriteRenderer:
   m_ObjectHideFlags: 1

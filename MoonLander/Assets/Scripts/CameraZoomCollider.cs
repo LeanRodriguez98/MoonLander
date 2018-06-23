@@ -5,33 +5,30 @@ using UnityEngine;
 public class CameraZoomCollider : MonoBehaviour {
     public static CameraZoomCollider instaciate;
     [HideInInspector] public bool CameraTrigger;
-    // Use this for initialization
+    private float ExitTimer;
+    public float CameraZoomOffTimer;
     void Start () {
         instaciate = this;
         CameraTrigger = false;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        ExitTimer = 0;
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Terrain" || collision.gameObject.tag == "LandTerrain")
-        {           
-            CameraTrigger = true;
-           
-        }        
     }
 
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Terrain" || collision.gameObject.tag == "LandTerrain")
+	void Update () {
+        ExitTimer += Time.deltaTime;
+
+        if (ExitTimer > CameraZoomOffTimer)
         {
             CameraTrigger = false;
-            
         }
     }
 
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Terrain" || collision.gameObject.tag == "LandTerrain")
+        {
+            CameraTrigger = true;
+            ExitTimer = 0;
+        }
+    }
 }
