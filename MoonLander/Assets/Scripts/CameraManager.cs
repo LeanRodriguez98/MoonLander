@@ -17,19 +17,22 @@ public class CameraManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (CameraZoomCollider.instaciate.CameraTrigger)
+        if (CameraZoomCollider.instaciate != null)
         {
-            PlayerPosition.x = CameraZoomCollider.instaciate.transform.position.x;
-            PlayerPosition.y = CameraZoomCollider.instaciate.transform.position.y;
+            if (CameraZoomCollider.instaciate.CameraTrigger)
+            {
+                PlayerPosition.x = CameraZoomCollider.instaciate.transform.position.x;
+                PlayerPosition.y = CameraZoomCollider.instaciate.transform.position.y;
 
-            GetComponent<Camera>().orthographicSize = ZoomCameraSize;
-            transform.position = PlayerPosition;
-        }
-        else
-        {
-            transform.position = OriginalPosition;
-            GetComponent<Camera>().orthographicSize = OriginalCameraSize;
-        }
+                GetComponent<Camera>().orthographicSize = ZoomCameraSize;
+                transform.position = PlayerPosition;
+            }
+            else
+            {
+                transform.position = OriginalPosition;
+                GetComponent<Camera>().orthographicSize = OriginalCameraSize;
+            }
+        }        
 
     }
 }

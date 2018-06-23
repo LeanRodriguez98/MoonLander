@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Terrain
   - LandTerrain
+  - LandCollider
   layers:
   - Default
   - TransparentFX

@@ -42,7 +42,7 @@ public class GameManagerController : MonoBehaviour {
        
         Instantiate(Player, new Vector2(-cameraW/2, cameraH/2), Quaternion.identity);
 
-        InstanciateTerrains = new GameObject[(int)cameraW];
+        InstanciateTerrains = new GameObject[(int)cameraW + 2];
 
         do
         {
@@ -61,7 +61,7 @@ public class GameManagerController : MonoBehaviour {
     {
         int counter = 0;
 
-        for (int i = (int)-cameraW/2; i < cameraW/2; i++)
+        for (int i = (int)-cameraW/2 - 1; i < cameraW/2 + 1; i++)
         {
 
            Instantiate(InstanciateTerrains[counter], new Vector2(i, StartHeightTerrain), Quaternion.identity);
