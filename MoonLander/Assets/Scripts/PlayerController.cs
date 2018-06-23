@@ -28,8 +28,8 @@ public class PlayerController : MonoBehaviour {
     void Update ()
     {          
         PlayerMovement();
-        Debug.Log("Horizontal Speed" + Rb_Player.velocity.x);
-        Debug.Log("Vertical Speed" + Rb_Player.velocity.y);
+      //  Debug.Log("Horizontal Speed" + Rb_Player.velocity.x);
+      //  Debug.Log("Vertical Speed" + Rb_Player.velocity.y);
 
     }
 
