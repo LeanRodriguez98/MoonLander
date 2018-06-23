@@ -1042,9 +1042,11 @@ MonoBehaviour:
   - {fileID: 1769356775549750, guid: 20e5a5c3ee637df4799b0d84ccd19eed, type: 2}
   LD_RD_LandZone:
   - {fileID: 1693686016473080, guid: 141bb7e8d45072b4193210855439342c, type: 2}
-  StartHeightTerrain: -2
+  - {fileID: 1931319653324792, guid: af57ddbb0385bdf4c9cc904d72832507, type: 2}
+  - {fileID: 1115808851031894, guid: 191b8c30094e0e940975b43778cefad5, type: 2}
+  StartHeightTerrain: -1
   MaxHeight: 3
-  MinHeight: -4
+  MinHeight: -3
 --- !u!4 &1765393431
 Transform:
   m_ObjectHideFlags: 0

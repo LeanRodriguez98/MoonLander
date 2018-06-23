@@ -11,14 +11,13 @@ public class GameManagerController : MonoBehaviour {
 
     public GameObject[] LD_RD_Terrain;//<-----------
     public GameObject[] LU_RD_Terrain;//<-----------
-    public GameObject[] LD_RU_Terrain;//<-----------  El 5 representa la cantidad de arrays que iran en el jagged array
+    public GameObject[] LD_RU_Terrain;//<-----------  El 6 representa la cantidad de arrays que iran en el jagged array
     public GameObject[] LU_RU_Terrain;//<-----------
     public GameObject[] LU_RU_LandZone;//<----------
     public GameObject[] LD_RD_LandZone;//<----------
 
 
     private GameObject[] AuxTerrains;
-
     public int StartHeightTerrain;
     public int MaxHeight;
     public int MinHeight;
@@ -37,7 +36,6 @@ public class GameManagerController : MonoBehaviour {
         Terrains[4] = LU_RU_Terrain;
         Terrains[5] = LU_RD_Terrain;
 
-        TerrainCheck = false;
 
         cameraH = Camera.main.orthographicSize * 2f;
         cameraW = cameraH * Camera.main.aspect;
@@ -89,15 +87,6 @@ public class GameManagerController : MonoBehaviour {
 
             counter++;
 
-            /*  if (i%2 == 0)
-              {
-                  Instantiate(LU_RU_LandZone[0], new Vector2(i, StartHeightTerrain), Quaternion.identity);
-              }
-              else
-              {
-                  Instantiate(LD_RD_Terrain[0], new Vector2(i, StartHeightTerrain + 1), Quaternion.identity);
-
-              }*/
         }
 
     }
@@ -111,6 +100,8 @@ public class GameManagerController : MonoBehaviour {
     {
         int TerrainsRandom = 0;
         int auxHeightTerrain = StartHeightTerrain;
+        TerrainCheck = false;
+
         for (int i = 0; i < NumberOfArrays; i++)
         {
             IndexArray.Add(i);
@@ -118,6 +109,7 @@ public class GameManagerController : MonoBehaviour {
 
         for (int i = 0; i < AuxTerrains.Length; i++)
         {
+            
             TerrainsRandom = IndexArray[Random.Range(0, IndexArray.Count)];
 
             AuxTerrains[i] = Terrains[TerrainsRandom][Random.Range(0, Terrains[TerrainsRandom].Length)];
@@ -127,7 +119,7 @@ public class GameManagerController : MonoBehaviour {
             switch (TerrainsRandom)
             {
                 case 0:
-                    IndexArray.Add(3);
+                   // IndexArray.Add(3);
                     IndexArray.Add(4);
                     IndexArray.Add(5);
                     auxHeightTerrain--;
@@ -141,12 +133,12 @@ public class GameManagerController : MonoBehaviour {
                 case 2:
                     IndexArray.Add(0);
                     IndexArray.Add(1);
-                    if (auxHeightTerrain < cameraH-2)                    
+                    if (auxHeightTerrain < MaxHeight)                    
                         IndexArray.Add(2);                    
                     auxHeightTerrain++;
                     break;
                 case 3:
-                    IndexArray.Add(0);
+                   // IndexArray.Add(0);
                     IndexArray.Add(1);
                     IndexArray.Add(2);
                     auxHeightTerrain++;
@@ -160,7 +152,7 @@ public class GameManagerController : MonoBehaviour {
                 case 5:
                     IndexArray.Add(3);
                     IndexArray.Add(4);
-                    if (auxHeightTerrain > 0)
+                    if (auxHeightTerrain > MinHeight)
                         IndexArray.Add(5);
                     auxHeightTerrain--;
                     break;
@@ -175,6 +167,7 @@ public class GameManagerController : MonoBehaviour {
                 if (AuxTerrains[i]== LD_RD_LandZone[j])
                 {
                     TerrainCheck = true;
+
                 }
             }
             for (int j = 0; i < LU_RU_LandZone.Length; i++)
@@ -182,9 +175,12 @@ public class GameManagerController : MonoBehaviour {
                 if (AuxTerrains[i] == LU_RU_LandZone[j])
                 {
                     TerrainCheck = true;
+
                 }
             }
         }
+
+        
 
     }
 }
