@@ -17,7 +17,7 @@ public class PlayerParticlesManager : MonoBehaviour
 
     void Update()
     {
-        if (_PlayerController.ParticlesController == true)
+        if (_PlayerController.ParticlesController == true && !_PlayerController.EndLevel)
         {
             particles.Play();
         }

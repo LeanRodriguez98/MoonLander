@@ -92,6 +92,7 @@ public class GameManagerController : MonoBehaviour {
 
     public void TerrainAsignation()
     {
+        bool FirstAndLastTerrainNoLand;
         int TerrainsRandom = 0;
         int auxHeightTerrain = StartHeightTerrain;
         TerrainCheck = false;
@@ -103,8 +104,24 @@ public class GameManagerController : MonoBehaviour {
 
         for (int i = 0; i < InstanciateTerrains.Length; i++)
         {
-            
-            TerrainsRandom = IndexArray[Random.Range(0, IndexArray.Count)];
+            if (i == 0 || i == InstanciateTerrains.Length - 1)
+            {
+                FirstAndLastTerrainNoLand = false;
+
+                do
+                {
+                    TerrainsRandom = IndexArray[Random.Range(0, IndexArray.Count)];
+                    if (TerrainsRandom != System.Array.IndexOf(Terrains, LD_RD_LandZone) && TerrainsRandom != System.Array.IndexOf(Terrains, LU_RU_LandZone))
+                    {
+                        FirstAndLastTerrainNoLand = true;
+                    }
+                } while (!FirstAndLastTerrainNoLand);                
+            }
+            else
+            {
+                TerrainsRandom = IndexArray[Random.Range(0, IndexArray.Count)];
+            }
+
 
             InstanciateTerrains[i] = Terrains[TerrainsRandom][Random.Range(0, Terrains[TerrainsRandom].Length)];
 
@@ -126,7 +143,7 @@ public class GameManagerController : MonoBehaviour {
                 case 2:
                     IndexArray.Add(System.Array.IndexOf(Terrains, LD_RD_LandZone));
                     IndexArray.Add(System.Array.IndexOf(Terrains, LD_RD_Terrain));
-                    if (auxHeightTerrain < MaxHeight)
+                    if (auxHeightTerrain > MaxHeight)
                         IndexArray.Add(System.Array.IndexOf(Terrains, LD_RU_Terrain));
                     auxHeightTerrain++;
                     break;
@@ -144,7 +161,7 @@ public class GameManagerController : MonoBehaviour {
                 case 5:
                     IndexArray.Add(System.Array.IndexOf(Terrains, LU_RU_LandZone));
                     IndexArray.Add(System.Array.IndexOf(Terrains, LU_RU_Terrain));
-                    if (auxHeightTerrain > MinHeight)
+                    if (auxHeightTerrain < MinHeight)
                         IndexArray.Add(System.Array.IndexOf(Terrains, LU_RD_Terrain));
                     auxHeightTerrain--;
                     break;

@@ -14,3 +14,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SplashScreens.unity
     guid: 4d989cfcd7da5684999be8d531e4d993
+  - enabled: 1
+    path: Assets/Scenes/LoadingScenes.unity
+    guid: f2de2cd3089b50d4ab123b40e9982ce6

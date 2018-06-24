@@ -62,6 +62,11 @@ public class ButtonsManager : MonoBehaviour
 
     public void Change_Scense(string LevelName)
     {
+        Time.timeScale = 1;
+        if (LoadingScenes.Instanciate != null)
+        {
+            LoadingScenes.Instanciate.Level = 1;
+        }
         SceneManager.LoadScene(LevelName);
     }
 }

@@ -585,8 +585,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rotation: {x: 0, y: 0, z: 0}
   ParticlesController: 0
+  EndLevel: 0
   ExplotionParticles: {fileID: 1666585897572436, guid: 7ff7ff372e5c57d4c9c7e7fdd160c2b9,
     type: 2}
+  MaxLandVelocity: 100
   InitialForce: 50
   RotationForce: 50
   PropulsionForce: 100
@@ -594,6 +596,8 @@ MonoBehaviour:
   Fuel: 1000
   CombustionFuel: 10
   MaxRotationLanding: 5
+  HorizontalSpeed: 0
+  VerticalSpeed: 0
 --- !u!114 &114731162123579636
 MonoBehaviour:
   m_ObjectHideFlags: 1
