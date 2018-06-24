@@ -16,11 +16,9 @@ public class PlayerController : MonoBehaviour {
     public float RotationForce;
     public float PropulsionForce;
     public float InitialRotation;
-    public float Fuel;
-    public float CombustionFuel;
+    
     public int MaxRotationLanding;
-    public float HorizontalSpeed;
-    public float VerticalSpeed;
+    public LayerMask Terrains;
     void Start ()
     {
         Instanciate = this;
@@ -30,27 +28,28 @@ public class PlayerController : MonoBehaviour {
         Rotation.z = InitialRotation;
         Rb_Player = GetComponent<Rigidbody2D>();
         Rb_Player.AddForce(transform.right * InitialForce);
-
+        
     }
 
 
     void Update ()
     {          
         PlayerMovement();
-        HorizontalSpeed = (int)(Rb_Player.velocity.x * 100);
-        VerticalSpeed = (int)(Rb_Player.velocity.y * 100);
+        PlayerStats.Instanciate.HorizontalSpeed = (int)(Rb_Player.velocity.x * 100);
+        PlayerStats.Instanciate.VerticalSpeed = (int)(Rb_Player.velocity.y * 100);
 
+        HeighUpdate();
         if (EndLevel)
             ChangeLevel();
     }
 
     public void PlayerMovement()
     {
-        if ((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Space)) && Fuel > 0 && !EndLevel)
+        if ((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Space)) && PlayerStats.Instanciate.Fuel > 0 && !EndLevel)
         {
             ParticlesController = true;
             Rb_Player.AddForce(transform.up * Time.deltaTime * PropulsionForce);
-            Fuel -= CombustionFuel * Time.deltaTime;
+            PlayerStats.Instanciate.Fuel -= PlayerStats.Instanciate.CombustionFuel * Time.deltaTime;
         }
         else
         {
@@ -74,11 +73,22 @@ public class PlayerController : MonoBehaviour {
         SceneManager.LoadScene("LoadingScenes");
     }
 
+    public void HeighUpdate()
+    {
+
+        RaycastHit2D HeightRay = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - GetComponent<SpriteRenderer>().bounds.size.y / 2), -Vector2.up , Mathf.Infinity, Terrains);
+        if (HeightRay.collider.tag == "Terrain")
+        {
+            PlayerStats.Instanciate.Height = (int)((GetComponent<SpriteRenderer>().bounds.min.y - HeightRay.point.y) * 10);
+        }
+        Debug.DrawRay(new Vector3(transform.position.x, transform.position.y - GetComponent<SpriteRenderer>().bounds.size.y / 2), -Vector3.up, Color.green);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "LandCollider")
         {
-            if( (transform.rotation.eulerAngles.z < MaxRotationLanding || transform.rotation.eulerAngles.z > 360 - MaxRotationLanding) && HorizontalSpeed > -MaxLandVelocity)
+            if( (transform.rotation.eulerAngles.z < MaxRotationLanding || transform.rotation.eulerAngles.z > 360 - MaxRotationLanding) && PlayerStats.Instanciate.HorizontalSpeed > -MaxLandVelocity)
             {
                 EndLevel = true;
                 Rb_Player.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;

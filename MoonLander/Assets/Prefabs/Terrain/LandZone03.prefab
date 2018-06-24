@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 60805586076705844}
   m_Layer: 8
   m_Name: LandZone03
-  m_TagString: LandTerrain
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
