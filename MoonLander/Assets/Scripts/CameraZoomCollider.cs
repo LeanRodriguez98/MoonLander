@@ -21,6 +21,8 @@ public class CameraZoomCollider : MonoBehaviour {
         {
             CameraTrigger = false;
         }
+        
+
     }
 
     void OnTriggerStay2D(Collider2D collision)
