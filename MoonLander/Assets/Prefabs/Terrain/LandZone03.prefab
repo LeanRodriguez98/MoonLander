@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 61215526843047990}
   m_Layer: 8
   m_Name: LandCollider
-  m_TagString: LandCollider
+  m_TagString: LandColliderX3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

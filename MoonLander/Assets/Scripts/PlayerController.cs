@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour {
     [HideInInspector] public Vector3 Rotation;
     [HideInInspector] public bool ParticlesController;
     [HideInInspector] public bool EndLevel;
-
+    [HideInInspector] public bool GameOver;
     private Rigidbody2D Rb_Player;
     public GameObject ExplotionParticles;
     public int MaxLandVelocity;
@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour {
     public float RotationForce;
     public float PropulsionForce;
     public float InitialRotation;
-    
+    public int PointsOnLand;
     public int MaxRotationLanding;
     public LayerMask Terrains;
     void Start ()
@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour {
         Instanciate = this;
         ParticlesController = false;
         EndLevel = false;
+        GameOver = false;
         Rotation = transform.eulerAngles;
         Rotation.z = InitialRotation;
         Rb_Player = GetComponent<Rigidbody2D>();
@@ -39,13 +40,12 @@ public class PlayerController : MonoBehaviour {
         PlayerStats.Instanciate.VerticalSpeed = (int)(Rb_Player.velocity.y * 100);
 
         HeighUpdate();
-        if (EndLevel)
-            ChangeLevel();
+        
     }
 
     public void PlayerMovement()
     {
-        if ((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Space)) && PlayerStats.Instanciate.Fuel > 0 && !EndLevel)
+        if ((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Space)) && PlayerStats.Instanciate.Fuel > 0 && !EndLevel && !GameOver)
         {
             ParticlesController = true;
             Rb_Player.AddForce(transform.up * Time.deltaTime * PropulsionForce);
@@ -56,22 +56,19 @@ public class PlayerController : MonoBehaviour {
             ParticlesController = false;
         }
         
-        if (Input.GetKey(KeyCode.LeftArrow) && !EndLevel)
+        if (Input.GetKey(KeyCode.LeftArrow) && !EndLevel && !GameOver)
         {
             Rotation.z += RotationForce * Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.RightArrow) && !EndLevel)
+        if (Input.GetKey(KeyCode.RightArrow) && !EndLevel && !GameOver)
         {
             Rotation.z -= RotationForce * Time.deltaTime;
         }
         transform.eulerAngles = Rotation;
     }
 
-    public void ChangeLevel()
-    {
-        SceneManager.LoadScene("LoadingScenes");
-    }
+    
 
     public void HeighUpdate()
     {
@@ -86,24 +83,40 @@ public class PlayerController : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "LandCollider")
+        if (collision.gameObject.tag == "LandColliderX1" || collision.gameObject.tag == "LandColliderX2" || collision.gameObject.tag == "LandColliderX3")
         {
             if( (transform.rotation.eulerAngles.z < MaxRotationLanding || transform.rotation.eulerAngles.z > 360 - MaxRotationLanding) && PlayerStats.Instanciate.HorizontalSpeed > -MaxLandVelocity)
             {
                 EndLevel = true;
-                Rb_Player.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+                switch (collision.gameObject.tag)
+                {
+                    case "LandColliderX1":
+                        PlayerStats.Instanciate.Points += PointsOnLand * 1;
+                        break;
+                    case "LandColliderX2":
+                        PlayerStats.Instanciate.Points += PointsOnLand * 2;
+                        break;
+                    case "LandColliderX3":
+                        PlayerStats.Instanciate.Points += PointsOnLand * 3;
+                        break;
+                }
+                Time.timeScale = 0;
             }
             else            
             {            
                 Instantiate(ExplotionParticles, transform.position, Quaternion.identity);
-                Destroy(gameObject);
+                GetComponent<SpriteRenderer>().enabled = false;
+                Rb_Player.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+                GameOver = true;
             }
         }
 
         if (collision.gameObject.tag == "Terrain" || collision.gameObject.tag == "LandTerrain")
         {
             Instantiate(ExplotionParticles, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            GetComponent<SpriteRenderer>().enabled = false;
+            Rb_Player.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+            GameOver = true;
         }
     }
 

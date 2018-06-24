@@ -7,6 +7,9 @@ TagManager:
   - Terrain
   - LandTerrain
   - LandCollider
+  - LandColliderX1
+  - LandColliderX2
+  - LandColliderX3
   layers:
   - Default
   - TransparentFX

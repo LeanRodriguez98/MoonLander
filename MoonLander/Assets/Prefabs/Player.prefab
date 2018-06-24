@@ -583,15 +583,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 925fce575ce647948b83461bb026816c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fuel: 1000
-  CombustionFuel: 10
-  Points: 0
-  HorizontalSpeed: 0
-  VerticalSpeed: 0
-  Height: 0
   Rotation: {x: 0, y: 0, z: 0}
   ParticlesController: 0
   EndLevel: 0
+  GameOver: 0
   ExplotionParticles: {fileID: 1666585897572436, guid: 7ff7ff372e5c57d4c9c7e7fdd160c2b9,
     type: 2}
   MaxLandVelocity: 100
@@ -599,6 +594,7 @@ MonoBehaviour:
   RotationForce: 50
   PropulsionForce: 100
   InitialRotation: 270
+  PointsOnLand: 50
   MaxRotationLanding: 5
   Terrains:
     serializedVersion: 2
