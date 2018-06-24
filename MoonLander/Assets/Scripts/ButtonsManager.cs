@@ -66,11 +66,23 @@ public class ButtonsManager : MonoBehaviour
         {
             Time.timeScale = 1;
         }
+        
+        SceneManager.LoadScene(LevelName);
+    }
+
+    public void BackToMainMenu()
+    {
+        if (Time.timeScale != 1)
+        {
+            Time.timeScale = 1;
+        }
         if (LoadingScenes.Instanciate != null)
         {
             LoadingScenes.Instanciate.Level = 1;
         }
-        SceneManager.LoadScene(LevelName);
+        PlayerStats.Instanciate.Points = 0;
+        SceneManager.LoadScene("MainMenu");
+
     }
 
     public void Exit()

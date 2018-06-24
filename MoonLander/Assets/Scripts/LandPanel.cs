@@ -21,5 +21,11 @@ public class LandPanel : MonoBehaviour {
             PointsText.text = "Points" + "\n" + PlayerStats.Instanciate.Points.ToString("0000");
             NextLevelButton.SetActive(true);
         }
+        else
+        {
+            PointsText.text = "";
+            NextLevelButton.SetActive(false);
+
+        }
     }
 }

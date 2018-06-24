@@ -21,5 +21,11 @@ public class GameOverPanel : MonoBehaviour {
             PointsText.text = "Points" + "\n" + PlayerStats.Instanciate.Points.ToString("0000");
             BackToMainMenu.SetActive(true);
         }
+        else
+        {
+            PointsText.text = "";
+            BackToMainMenu.SetActive(false);
+
+        }
     }
 }
