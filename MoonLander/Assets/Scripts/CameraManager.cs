@@ -23,11 +23,6 @@ public class CameraManager : MonoBehaviour {
 	void Update () {
         if (CameraZoomCollider.instaciate != null)
         {
-           /* Debug.Log("Player" + PlayerPosition.x);
-            Debug.Log("Camera" + (int)OriginalCameraW / 2);
-            Debug.Log("Total" + (PlayerPosition.x - (int)OriginalCameraW / 2));*/
-
-
             if (CameraZoomCollider.instaciate.CameraTrigger)
             {
                 PlayerPosition.x = CameraZoomCollider.instaciate.transform.position.x;

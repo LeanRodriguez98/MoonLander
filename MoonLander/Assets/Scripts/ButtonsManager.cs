@@ -93,4 +93,9 @@ public class ButtonsManager : MonoBehaviour
         Application.Quit();
         #endif
     }
+
+    public void RechargeFuel(int fuel)
+    {
+        PlayerStats.Instanciate.Fuel += fuel;
+    }
 }
