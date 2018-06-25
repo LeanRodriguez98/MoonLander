@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class SplashScreens : MonoBehaviour
 {
-    public float Fade = 10;
-    public float wait = 2;
+    public float Fade;
+    public float wait;
     public string NextSceneName;
 
     public RawImage[] SplashImages;

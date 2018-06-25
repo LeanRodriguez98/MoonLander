@@ -18,20 +18,21 @@ public class GameManagerController : MonoBehaviour {
     public GameObject LimitColliderRight;
     public GameObject LimitColliderUp;
     public GameObject LimitColliderDown;
+    public GameObject Wind;
     public int StartHeightTerrain;
     public int MaxHeight;
     public int MinHeight;
-    public float Aspect;
- 
+    public float InstanciateWindTimer;
 
     private GameObject[] InstanciateTerrains;
     private GameObject AuxTerrain;
     private List<int> IndexArray = new List<int>();
+    private float Aspect;
     private float cameraH;
     private float cameraW;
+    private float AuxInstanciateWindTimer;
     private bool TerrainCheck;
 
-    
 
     void Start()
     {
@@ -46,7 +47,7 @@ public class GameManagerController : MonoBehaviour {
 
         cameraH = Camera.main.orthographicSize * 2f;
         cameraW = cameraH * Camera.main.aspect;
-       
+        AuxInstanciateWindTimer = 0;
         Instantiate(Player, new Vector2(-cameraW/2, cameraH/2), Quaternion.identity);
 
         InstanciateTerrains = new GameObject[(int)cameraW + 2];
@@ -63,6 +64,17 @@ public class GameManagerController : MonoBehaviour {
     void Update ()
     {
         UpdateLimitColliders();
+        InstanciateWind();
+    }
+
+    public void InstanciateWind()
+    {
+        AuxInstanciateWindTimer += Time.deltaTime;
+        if (AuxInstanciateWindTimer >= InstanciateWindTimer && !PlayerController.Instanciate.GameOver)
+        {
+            Instantiate(Wind, new Vector2(Random.Range(((int)-cameraW / 2),((int)cameraW / 2)), Random.Range(((int)-cameraH) / 2, ((int)cameraH / 2))), Quaternion.identity);
+            AuxInstanciateWindTimer = 0;
+        }
     }
 
     public void UpdateLimitColliders()

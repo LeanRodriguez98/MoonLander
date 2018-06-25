@@ -7093,10 +7093,11 @@ MonoBehaviour:
   LimitColliderRight: {fileID: 431343260}
   LimitColliderUp: {fileID: 1527994379}
   LimitColliderDown: {fileID: 1996049781}
+  Wind: {fileID: 1373834183548136, guid: 63d884818efaf6242bba88f284eb9933, type: 2}
   StartHeightTerrain: -2
   MaxHeight: 3
   MinHeight: -4
-  Aspect: 0
+  InstanciateWindTimer: 5
 --- !u!4 &1765393431
 Transform:
   m_ObjectHideFlags: 0

@@ -37,11 +37,16 @@ public class PlayerController : MonoBehaviour {
     void Update ()
     {          
         PlayerMovement();
+        UpdateSpeed();
+        HeighUpdate();     
+
+
+    }
+
+    public void UpdateSpeed()
+    {
         PlayerStats.Instanciate.HorizontalSpeed = (int)(Rb_Player.velocity.x * 100);
         PlayerStats.Instanciate.VerticalSpeed = (int)(Rb_Player.velocity.y * 100);
-
-        HeighUpdate();
-        
     }
 
     public void PlayerMovement()
