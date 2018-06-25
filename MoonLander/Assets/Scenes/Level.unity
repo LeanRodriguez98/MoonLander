@@ -716,7 +716,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 942209508}
-        m_MethodName: Test
+        m_MethodName: WindCheat
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7068,7 +7068,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f258f4e5b93fd2418abe7e38b3af6c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1127085681335730, guid: bb937d6bffe23d441b3aca68266192e3, type: 2}
   LD_RD_Terrain:
   - {fileID: 1642300676686086, guid: b89c38fef7663fa4a8f5124c38cdf804, type: 2}
   - {fileID: 1171539340824264, guid: 83dfc8ac9f8fc484c9bcdcf70d4ff606, type: 2}
@@ -7094,10 +7093,12 @@ MonoBehaviour:
   LimitColliderUp: {fileID: 1527994379}
   LimitColliderDown: {fileID: 1996049781}
   Wind: {fileID: 1373834183548136, guid: 63d884818efaf6242bba88f284eb9933, type: 2}
+  Player: {fileID: 1127085681335730, guid: bb937d6bffe23d441b3aca68266192e3, type: 2}
   StartHeightTerrain: -2
   MaxHeight: 3
   MinHeight: -4
   InstanciateWindTimer: 5
+  WindCheat: 0
 --- !u!4 &1765393431
 Transform:
   m_ObjectHideFlags: 0
