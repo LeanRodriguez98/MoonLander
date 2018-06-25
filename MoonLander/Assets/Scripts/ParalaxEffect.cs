@@ -18,10 +18,14 @@ public class ParalaxEffect : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        ActualPlayerPosition = PlayerController.Instanciate.transform.position;       
-        DiferenceOfPosition = ActualPlayerPosition.x - OriginalPlayerPosition.x;
-        Position.x += ParalaxMovementIntencity * Time.deltaTime * DiferenceOfPosition;
-        OriginalPlayerPosition = PlayerController.Instanciate.transform.position;      
-        transform.position = Position;
+        if (PlayerController.Instanciate != null)
+        {
+            ActualPlayerPosition = PlayerController.Instanciate.transform.position;
+            DiferenceOfPosition = ActualPlayerPosition.x - OriginalPlayerPosition.x;
+            Position.x += ParalaxMovementIntencity * Time.deltaTime * DiferenceOfPosition;
+            OriginalPlayerPosition = PlayerController.Instanciate.transform.position;
+            transform.position = Position;
+        }
+        
     }
 }

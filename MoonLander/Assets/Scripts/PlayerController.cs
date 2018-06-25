@@ -74,11 +74,15 @@ public class PlayerController : MonoBehaviour {
     {
 
         RaycastHit2D HeightRay = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - GetComponent<SpriteRenderer>().bounds.size.y / 2), -Vector2.up , Mathf.Infinity, Terrains);
-        if (HeightRay.collider.tag == "Terrain")
+        if (gameObject != null)
         {
-            PlayerStats.Instanciate.Height = (int)((GetComponent<SpriteRenderer>().bounds.min.y - HeightRay.point.y) * 10);
+            if (HeightRay.collider.tag == "Terrain")
+            {
+                PlayerStats.Instanciate.Height = (int)((GetComponent<SpriteRenderer>().bounds.min.y - HeightRay.point.y) * 10);
+            }
+            Debug.DrawRay(new Vector3(transform.position.x, transform.position.y - GetComponent<SpriteRenderer>().bounds.size.y / 2), -Vector3.up, Color.green);
         }
-        Debug.DrawRay(new Vector3(transform.position.x, transform.position.y - GetComponent<SpriteRenderer>().bounds.size.y / 2), -Vector3.up, Color.green);
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

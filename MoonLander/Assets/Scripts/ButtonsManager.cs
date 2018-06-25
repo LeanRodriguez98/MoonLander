@@ -66,7 +66,7 @@ public class ButtonsManager : MonoBehaviour
         {
             Time.timeScale = 1;
         }
-        
+
         SceneManager.LoadScene(LevelName);
     }
 
@@ -81,6 +81,8 @@ public class ButtonsManager : MonoBehaviour
             LoadingScenes.Instanciate.Level = 1;
         }
         PlayerStats.Instanciate.Points = 0;
+        
+
         SceneManager.LoadScene("MainMenu");
 
     }

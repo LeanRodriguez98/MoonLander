@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class LoadingScenes : MonoBehaviour {
     public static LoadingScenes Instanciate;
     public string LoadingText;
+    public string LoadingScenesName;
+
     public int LoadingSpeed;
     [HideInInspector]public int Level;
     private float Percentage;
@@ -44,7 +46,7 @@ public class LoadingScenes : MonoBehaviour {
 
     public void UpdatePercentage()
     {
-        if (SceneManager.GetActiveScene().name == "LoadingScenes")
+        if (SceneManager.GetActiveScene().name == LoadingScenesName)
         {
             LoadingText = "Loading Level " + Level + " % " + ((int)Percentage).ToString("000");
             Percentage += Time.deltaTime * LoadingSpeed;
