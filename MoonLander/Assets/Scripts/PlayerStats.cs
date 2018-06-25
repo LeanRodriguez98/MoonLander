@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour {
     public static PlayerStats Instanciate;
-
-    public float Fuel;
-    public float CombustionFuel;
     [HideInInspector] public int Points;
     [HideInInspector] public float HorizontalSpeed;
     [HideInInspector] public float VerticalSpeed;
     [HideInInspector] public float Height;
+    public float Fuel;
+    public float CombustionFuel;
+    
 
     void Awake()
     {

@@ -8,12 +8,13 @@ using UnityEngine.SceneManagement;
 
 public class HighscoreManager : MonoBehaviour {
     public static HighscoreManager Instanciate;
+    [HideInInspector] public List<int> ScoreList = new List<int>();
+    [HideInInspector] public bool AsignHishcore;
     public int CantHighscores;
     public string LoadingScenesName;
     public string LevelName;
 
-    [HideInInspector] public List<int> ScoreList = new List<int>();
-    [HideInInspector] public bool AsignHishcore;
+    
     
     void Awake()
     {
@@ -31,7 +32,7 @@ public class HighscoreManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
             AsignHishcore = true;
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < CantHighscores; i++)
         {
             ScoreList.Add(0);
         }

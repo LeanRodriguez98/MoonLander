@@ -9,10 +9,8 @@ public class HighscoreText : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         for (int i = 0; i < HighscoreTexts.Length; i++)
-        {
-            
-            HighscoreTexts[i].text = HighscoreManager.Instanciate.ScoreList[i].ToString("0000");
-            
+        {            
+            HighscoreTexts[i].text = HighscoreManager.Instanciate.ScoreList[i].ToString("0000");            
         }
     }
 	

@@ -5,8 +5,9 @@ using UnityEngine;
 public class CameraZoomCollider : MonoBehaviour {
     public static CameraZoomCollider instaciate;
     [HideInInspector] public bool CameraTrigger;
-    private float ExitTimer;
     public float CameraZoomOffTimer;
+    private float ExitTimer;
+
     void Start () {
         instaciate = this;
         CameraTrigger = false;

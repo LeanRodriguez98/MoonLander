@@ -3340,6 +3340,79 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1200703536}
+--- !u!1 &1294562077
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1294562079}
+  - component: {fileID: 1294562078}
+  m_Layer: 0
+  m_Name: Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1294562078
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1294562077}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -30000
+  m_Sprite: {fileID: 21300000, guid: 0764ba12affb6fa488fdb13636f4c004, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 12.8, y: 7.2}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+--- !u!4 &1294562079
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1294562077}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1295093250
 GameObject:
   m_ObjectHideFlags: 0
@@ -6949,12 +7022,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56d2e26ff26448a468b50abd67a09394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fuel: 1000
-  CombustionFuel: 10
   Points: 0
   HorizontalSpeed: 0
   VerticalSpeed: 0
   Height: 0
+  Fuel: 1000
+  CombustionFuel: 10
 --- !u!4 &1631388349
 Transform:
   m_ObjectHideFlags: 0
@@ -7016,14 +7089,14 @@ MonoBehaviour:
   - {fileID: 1693686016473080, guid: 141bb7e8d45072b4193210855439342c, type: 2}
   - {fileID: 1931319653324792, guid: af57ddbb0385bdf4c9cc904d72832507, type: 2}
   - {fileID: 1115808851031894, guid: 191b8c30094e0e940975b43778cefad5, type: 2}
-  StartHeightTerrain: -2
-  MaxHeight: 3
-  MinHeight: -4
   LimitColliderLeft: {fileID: 1195452082}
   LimitColliderRight: {fileID: 431343260}
   LimitColliderUp: {fileID: 1527994379}
   LimitColliderDown: {fileID: 1996049781}
-  aspect: 0
+  StartHeightTerrain: -2
+  MaxHeight: 3
+  MinHeight: -4
+  Aspect: 0
 --- !u!4 &1765393431
 Transform:
   m_ObjectHideFlags: 0
@@ -7186,11 +7259,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bd7456a8883fbe49ba03d86b6f0e0df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScoreList: 
+  AsignHishcore: 0
   CantHighscores: 5
   LoadingScenesName: LoadingScenes
   LevelName: Level
-  ScoreList: 
-  AsignHishcore: 0
 --- !u!4 &1897257972
 Transform:
   m_ObjectHideFlags: 0

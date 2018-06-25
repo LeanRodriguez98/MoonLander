@@ -6,9 +6,9 @@ public class CameraManager : MonoBehaviour {
     private Vector3 OriginalPosition;
     private Vector3 PlayerPosition;
     private float OriginalCameraSize;
-    public float ZoomCameraSize;
     private float OriginalCameraH;
     private float OriginalCameraW;
+    public float ZoomCameraSize;
 
     // Use this for initialization
     void Start () {

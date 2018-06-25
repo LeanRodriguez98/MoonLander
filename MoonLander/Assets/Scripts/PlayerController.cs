@@ -5,20 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
     public static PlayerController Instanciate;
+    public GameObject ExplotionParticles;
     [HideInInspector] public Vector3 Rotation;
     [HideInInspector] public bool ParticlesController;
     [HideInInspector] public bool EndLevel;
-    [HideInInspector] public bool GameOver;
-    private Rigidbody2D Rb_Player;
-    public GameObject ExplotionParticles;
-    public int MaxLandVelocity;
+    [HideInInspector] public bool GameOver;     
     public float InitialForce;
     public float RotationForce;
     public float PropulsionForce;
     public float InitialRotation;
     public int PointsOnLand;
     public int MaxRotationLanding;
+    public int MaxLandVelocity;
     public LayerMask Terrains;
+    private Rigidbody2D Rb_Player;
+
     void Start ()
     {
         Instanciate = this;

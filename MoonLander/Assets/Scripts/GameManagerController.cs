@@ -6,34 +6,33 @@ using UnityEngine;
 public class GameManagerController : MonoBehaviour {
 
     public GameObject Player;
-
     private const int NumberOfArrays = 6;// <------ MAGIC NUMBER, no se como evitarlo profe ¿Alguna idea?
     private GameObject[][] Terrains = new GameObject[NumberOfArrays][]; 
-
     public GameObject[] LD_RD_Terrain;//<-----------
     public GameObject[] LU_RD_Terrain;//<-----------
     public GameObject[] LD_RU_Terrain;//<-----------  El 6 representa la cantidad de arrays que iran en el jagged array
     public GameObject[] LU_RU_Terrain;//<-----------
     public GameObject[] LU_RU_LandZone;//<----------
     public GameObject[] LD_RD_LandZone;//<----------
-
-
-    private GameObject[] InstanciateTerrains;
-    public int StartHeightTerrain;
-    public int MaxHeight;
-    public int MinHeight;
-    private float cameraH;
-    private float cameraW;
-    private GameObject AuxTerrain;
-    private List<int> IndexArray = new List<int>();
-    private bool TerrainCheck;
-
     public GameObject LimitColliderLeft;
     public GameObject LimitColliderRight;
     public GameObject LimitColliderUp;
     public GameObject LimitColliderDown;
+    public int StartHeightTerrain;
+    public int MaxHeight;
+    public int MinHeight;
+    public float Aspect;
+ 
 
-    public float aspect;
+    private GameObject[] InstanciateTerrains;
+    private GameObject AuxTerrain;
+    private List<int> IndexArray = new List<int>();
+    private float cameraH;
+    private float cameraW;
+    private bool TerrainCheck;
+
+    
+
     void Start()
     {
         Terrains[0] = LD_RD_LandZone;
@@ -43,7 +42,7 @@ public class GameManagerController : MonoBehaviour {
         Terrains[4] = LU_RU_Terrain;
         Terrains[5] = LU_RD_Terrain;
 
-        aspect = Camera.main.aspect;
+        Aspect = Camera.main.aspect;
 
         cameraH = Camera.main.orthographicSize * 2f;
         cameraW = cameraH * Camera.main.aspect;
@@ -68,13 +67,13 @@ public class GameManagerController : MonoBehaviour {
 
     public void UpdateLimitColliders()
     {
-        if (aspect != Camera.main.aspect)
+        if (Aspect != Camera.main.aspect)
         {
             LimitColliderUp.transform.position = new Vector3(0, (cameraH / 2) + (LimitColliderUp.transform.localScale.y / 2), 0);
             LimitColliderDown.transform.position = new Vector3(0, (-cameraH / 2) - (LimitColliderDown.transform.localScale.y / 2), 0);
             LimitColliderLeft.transform.position = new Vector3((-cameraW / 2) - (LimitColliderLeft.transform.localScale.x / 2), 0, 0);
             LimitColliderRight.transform.position = new Vector3((cameraW / 2) + (LimitColliderRight.transform.localScale.x / 2), 0, 0);
-            aspect = Camera.main.aspect;
+            Aspect = Camera.main.aspect;
         }        
     }
 
